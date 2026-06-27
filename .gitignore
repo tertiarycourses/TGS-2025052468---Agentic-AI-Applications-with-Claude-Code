@@ -1,0 +1,10 @@
+# OS / temp
+.DS_Store
+*.tmp
+
+# Word / Office lock & temp files
+~$*
+*.~*
+
+# Logs
+*.log
