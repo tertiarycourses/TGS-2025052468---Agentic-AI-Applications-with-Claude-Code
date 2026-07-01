@@ -8,3 +8,13 @@
 
 # Logs
 *.log
+
+# WSQ assessment materials (confidential — NEVER pushed)
+/assessment/
+/assessment\ /
+
+# Assessment-generating skill (kept local only, not pushed)
+.claude/skills/wsq-assessment/
+
+# Playwright MCP artifacts
+.playwright-mcp/

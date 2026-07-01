@@ -73,5 +73,6 @@ See the **wsq-slides** skill for the slide-deck equivalents and the assessment f
 4. Merge with **docxcompose** (`Composer(front).append(body)`), set `updateFields`, save.
 5. QA by converting to PDF and checking the cover, version table and page breaks render.
 
-Keep prose clean: no decorative formatting; mirror the wording style of the existing
-`template/` documents in the project.
+Keep prose clean: no decorative formatting; mirror the house wording style of the existing
+Lesson Plan / Learner Guide documents. Use the Tertiary logo at
+`.claude/skills/assets/logo6.png` on the cover page.

@@ -91,4 +91,5 @@ For assessment timings (one-day vs two-day) see the **wsq-lesson-plan** / **wsq-
    formatting render correctly.
 
 Write activities so a learner can follow them click-by-click; prefer concrete commands and
-expected results over prose. Keep formatting clean and consistent with the project `template/`.
+expected results over prose. Keep formatting clean and consistent with the house style; use
+the Tertiary logo at `.claude/skills/assets/logo6.png` on the cover page.
