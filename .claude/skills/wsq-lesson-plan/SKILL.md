@@ -13,9 +13,44 @@ description: >
 > Tertiary Infotech Academy WSQ courseware design — not just one course. Swap in the relevant
 > course title, TGS code and content; keep the house format below.
 
-House format for Tertiary Infotech Academy WSQ **Lesson Plan** documents. The deliverable
-is a Microsoft Word `.docx`. Build the body in Markdown, then wrap it with the cover,
+House format for Tertiary Infotech Academy WSQ **Lesson Plan** documents. The deliverables
+are a Microsoft Word `.docx` **and** a `.pdf` rendered from it — **no Markdown mirror** (HARD
+RULE 4). Build the body in Markdown as a throwaway intermediate, then wrap it with the cover,
 version-control record and a live Word TOC field (see [Build method](#build-method)).
+
+## HARD RULES (non-negotiable)
+
+1. **The Lesson Plan MUST cite the slide (page) numbers of the course deck.** The trainer
+   uses the LP to run the class from the slides, so every teaching session must point to the
+   matching deck pages:
+   - The **Daily Schedule table** carries a **`Slides`** column giving the deck page range for
+     each teaching row (e.g. `Slides 21–23`); use `—` for admin/break/assessment rows.
+   - The **Topic-by-topic breakdown** shows the deck slide number on each activity/lab heading
+     (e.g. `### Lab 6 — Containerization with Docker · Slide 26`) and the divider + range on
+     each topic/domain heading.
+   - Slide numbers must be **read from the actual built deck, not hand-typed** — the deck build
+     writes a `slide_map.json` (lab/topic → page number) that the LP builder consumes, so the
+     two never drift. Always build the slide deck **before** the Lesson Plan.
+2. **Cover page, Document Version Control Record and a live Word TOC field** must all be present
+   (see [Document structure](#document-structure-in-order)).
+3. **Assessment scheduling** must match the deck / `wsq-slides` skill (see below).
+4. **Deliverables are the DOCX and a PDF ONLY — never a Markdown mirror.** The only Lesson Plan
+   artifacts kept in the repo are `LP-<course>.docx` and `LP-<course>.pdf` (rendered from the
+   DOCX). Markdown may be used **only** as a throwaway build intermediate for pandoc and MUST be
+   deleted once the DOCX is built — do **not** save or commit a `Lesson-Plan.md` / `LP-*.md`
+   alongside the document.
+
+## Reference implementation (shared, single-source)
+
+The canonical **single-source build pipeline** for WSQ courseware (slide deck + **Lesson
+Plan** + Learner Guide from one content module) ships with the `wsq-slides` skill at
+`../wsq-slides/reference/` (installed at both `~/.claude/skills/wsq-slides/reference/` and
+`.claude/skills/wsq-slides/reference/`). The Lesson Plan builder is
+`reference/build_lesson_plan.py`; it reads `course_data.py` + `data_domainN.py` (the same
+content that drives the deck and guide, so all three stay aligned) and uses `prodoc.py`
+for the WSQ cover page, version-control record, TOC and footer. Copy `reference/` into the
+course repo, edit the data modules, and run `python3 build_lesson_plan.py`. See
+`reference/README.md`.
 
 ## Organisation constants
 
@@ -45,9 +80,11 @@ version-control record and a live Word TOC field (see [Build method](#build-meth
 4. **Body** (uses Heading 1/2/3 styles so the TOC builds):
    - **Course Overview** — 1–2 sentences on the course.
    - **Learning Outcomes** — bulleted, "By the end of this course, participants will be able to…".
-   - **Daily Schedule** — a table: **Time | Duration | Topic / Activity | Method**. Show
-     breaks and the assessment block explicitly. For a one-day class use 9:00 AM – 6:00 PM.
-   - **Topic-by-topic breakdown** — Heading 1 per topic, with sub-points and activities.
+   - **Daily Schedule** — a table: **Time | Duration | Topic / Activity | Method | Slides**.
+     The **Slides** column is mandatory (HARD RULE 1) — the deck page range per teaching row.
+     Show breaks and the assessment block explicitly. For a one-day class use 9:00 AM – 6:00 PM.
+   - **Topic-by-topic breakdown** — Heading 1 per topic, with sub-points and activities; put
+     the **deck slide number on every activity/lab heading** (HARD RULE 1).
    - **Resources Required** — bulleted.
    - **Assessment** — WA + PP timings, start time, open-book, funding criteria, and the LMS link.
 
@@ -65,14 +102,16 @@ See the **wsq-slides** skill for the slide-deck equivalents and the assessment f
 
 ## Build method
 
-1. Write the body in Markdown (`Lesson-Plan.md`) starting at `## Learning Outcomes`
-   (no cover/title in the body — the cover is generated separately).
-2. `pandoc Lesson-Plan.md -o body.docx` to get Heading-styled body content.
+1. Write the body in Markdown as a **temporary intermediate** (e.g. a scratch `body.md`)
+   starting at `## Learning Outcomes` (no cover/title in the body — the cover is generated
+   separately).
+2. `pandoc body.md -o body.docx` to get Heading-styled body content.
 3. With `python-docx`, build a front-matter doc: cover page, version-control table, and a
    TOC field (raw OOXML `w:fldChar`/`w:instrText`).
 4. Merge with **docxcompose** (`Composer(front).append(body)`), set `updateFields`, save.
-5. QA by converting to PDF and checking the cover, version table and page breaks render.
+5. Render the DOCX to PDF and QA the cover, version table and page breaks.
+6. **Delete the intermediate Markdown** (HARD RULE 4) — keep only `LP-<course>.docx` and
+   `LP-<course>.pdf`. Never leave a `Lesson-Plan.md` / `LP-*.md` in the repo.
 
-Keep prose clean: no decorative formatting; mirror the house wording style of the existing
-Lesson Plan / Learner Guide documents. Use the Tertiary logo at
-`.claude/skills/assets/logo6.png` on the cover page.
+Keep prose clean: no decorative formatting; mirror the wording style of the existing
+`template/` documents in the project.

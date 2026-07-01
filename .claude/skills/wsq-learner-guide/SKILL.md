@@ -13,9 +13,33 @@ description: >
 > Infotech Academy WSQ courseware design — not just one course. Swap in the relevant course
 > title, TGS code and content; keep the house format below.
 
-House format for Tertiary Infotech Academy WSQ **Learner Guide** documents. The deliverable
-is a Microsoft Word `.docx`. Build the body in Markdown, then wrap it with the cover,
+House format for Tertiary Infotech Academy WSQ **Learner Guide** documents. The deliverables
+are a Microsoft Word `.docx` **and** a `.pdf` rendered from it — **no Markdown mirror** (HARD
+RULE 1). Build the body in Markdown as a throwaway intermediate, then wrap it with the cover,
 version-control record and a live Word TOC field (see [Build method](#build-method)).
+
+## HARD RULES (non-negotiable)
+
+1. **Deliverables are the DOCX and a PDF ONLY — never a Markdown mirror.** The only Learner
+   Guide artifacts kept in the repo are `LG-<course>.docx` and `LG-<course>.pdf` (rendered from
+   the DOCX). Markdown may be used **only** as a throwaway build intermediate for pandoc and MUST
+   be deleted once the DOCX is built — do **not** save or commit a `Learner-Guide.md` / `LG-*.md`
+   alongside the document.
+2. **Cover page, Document Version Control Record and a live Word TOC field** must all be present
+   (see [Document structure](#document-structure-in-order)).
+
+## Reference implementation (shared, single-source)
+
+The canonical **single-source build pipeline** for WSQ courseware (slide deck + Lesson
+Plan + **Learner Guide** from one content module) ships with the `wsq-slides` skill at
+`../wsq-slides/reference/` (installed at both `~/.claude/skills/wsq-slides/reference/` and
+`.claude/skills/wsq-slides/reference/`). The Learner Guide builder is
+`reference/build_learner_guide.py`; it builds the DOCX from a single source (any Markdown it
+emits is a throwaway intermediate — delete it, keep only the DOCX + PDF, HARD RULE 1),
+reading `course_data.py` + `data_domainN.py` (the same content that drives the deck
+and Lesson Plan, so all three stay aligned) and using `prodoc.py` for the WSQ cover page,
+version-control record, TOC and footer. Copy `reference/` into the course repo, edit the
+data modules, and run `python3 build_learner_guide.py`. See `reference/README.md`.
 
 ## Organisation constants
 
@@ -80,16 +104,15 @@ For assessment timings (one-day vs two-day) see the **wsq-lesson-plan** / **wsq-
 
 ## Build method
 
-1. Write the body in Markdown (`Learner-Guide.md`) starting at `## How to Use This Guide`
-   (no cover/title block in the body).
-2. `pandoc Learner-Guide.md -o body.docx` for Heading-styled body content.
+1. Write the body in Markdown as a **temporary intermediate** (e.g. a scratch `body.md`)
+   starting at `## How to Use This Guide` (no cover/title block in the body).
+2. `pandoc body.md -o body.docx` for Heading-styled body content.
 3. With `python-docx`, build a front-matter doc: cover page, version-control table, and a
    TOC field (raw OOXML `w:fldChar`/`w:instrText`).
 4. Merge with **docxcompose** (`Composer(front).append(body)`), set `updateFields`, save.
-5. Also keep the Markdown source alongside the `.docx` for easy editing.
-6. QA by converting to PDF and checking the cover, version table, TOC page and activity
-   formatting render correctly.
+5. Render the DOCX to PDF and QA the cover, version table, TOC page and activity formatting.
+6. **Delete the intermediate Markdown** (HARD RULE 1) — keep only `LG-<course>.docx` and
+   `LG-<course>.pdf`. Never leave a `Learner-Guide.md` / `LG-*.md` in the repo.
 
 Write activities so a learner can follow them click-by-click; prefer concrete commands and
-expected results over prose. Keep formatting clean and consistent with the house style; use
-the Tertiary logo at `.claude/skills/assets/logo6.png` on the cover page.
+expected results over prose. Keep formatting clean and consistent with the project `template/`.

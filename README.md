@@ -23,9 +23,8 @@ A hands-on, one-day WSQ course on building real applications with **Claude Code*
 
 | Folder / file | Contents |
 |---|---|
-| `courseware/` | Slide deck (`.pptx` / `.pdf`), Learner Guide (`LG-…`) and Lesson Plan (`LP-…`) |
-| `Learner-Guide.md` | Markdown source of the learner guide |
-| `.claude/skills/` | House courseware skills (`wsq-slides`, `wsq-learner-guide`, `wsq-lesson-plan`) and shared branding assets under `assets/` |
+| `courseware/` | Slide deck (`.pptx` / `.pdf`), Learner Guide (`LG-…`) and Lesson Plan (`LP-…`) — each as **DOCX + PDF only** (no Markdown mirror) |
+| `.claude/skills/` | House courseware skills (`wsq-slides`, `wsq-learner-guide`, `wsq-lesson-plan`) with the shared single-source build pipeline under `wsq-slides/reference/`, plus branding assets under `assets/` |
 
 ## Courseware & assessment
 

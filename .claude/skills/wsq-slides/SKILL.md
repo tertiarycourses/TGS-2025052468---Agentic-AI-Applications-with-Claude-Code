@@ -5,8 +5,11 @@ description: >
   Use whenever building, revamping, or standardising a WSQ training PowerPoint (.pptx).
   Enforces the house standards: copyright line, organisation name + UEN on the front
   page, two "About the Trainer" variants (a blank General Trainer template and the
-  named trainer), and the correct admin slide order (Briefing for Assessment before
-  the Assessment slide), plus a Lesson Plan slide.
+  named trainer) as visual profile cards, the correct admin slide order (Briefing for
+  Assessment before the Assessment slide), a Lesson Plan slide, a mandatory professional
+  visual component system (tile grids, flow diagrams, cards, profile cards — never plain
+  bullet walls), and the assessment admin pages (Assessment, Assessment Flow, Digital
+  Attendance/TRAQOM) repeated at the END of the deck before Thank You.
 ---
 
 # WSQ Slides Skill
@@ -17,6 +20,55 @@ description: >
 
 House standard for Tertiary Infotech Academy WSQ courseware decks. Apply ALL of the
 rules below to every WSQ slide deck you create or revamp.
+
+## HARD RULES (non-negotiable)
+
+Every WSQ deck **must** satisfy all of the following. A deck that fails any of these does
+not meet the WSQ house standard.
+
+1. **Slides must ALWAYS be visual — never a wall of bullet text.** Build each slide from
+   the [Visual design system](#visual-design-system-mandatory) components (tile grids,
+   horizontal flow diagrams, colour-topped cards, profile cards, big statements,
+   activity/step/verify slides, section dividers). Any slide that would be 4+ bullets of
+   concept, outcome, process, comparison or trainer content **must** be converted to the
+   matching component. Plain bullet lists are allowed **only** for genuinely list-like
+   admin text (Learner Introduction, LMS instructions).
+
+2. **Admin pages must be present** (see [Required elements](#required-elements) for detail):
+   Title (org + UEN), Digital Attendance (TRAQOM · SSG), About the Trainer ×2, Learner
+   Introduction, Ground Rules, Course Outline / Lesson Plan, Learning Outcomes, Briefing
+   for Assessment, Assessment & Funding, and the LMS courseware/assessment slide.
+
+3. **About the Trainer — two slides, as visual profile cards** (avatar badge + name/role
+   panel + labelled info tiles): a blank **General Trainer** template and the **named
+   trainer**. Never a plain bullet list.
+
+4. **Assessment Flow must be a horizontal numbered flow diagram** (numbered chips joined
+   by chevrons): TRAQOM → Assessment Digital Attendance → Assessment (WA then PP) →
+   Submit on the LMS → Sign the Assessment Summary Record.
+
+5. **TRAQOM · SSG Digital Attendance page must be present** (front of deck, and again at
+   the end — see rule 6). TRAQOM = the SSG **digital attendance** system, not a survey.
+
+6. **Assessment admin pages repeated at the END**, immediately before *Thank You*, in
+   this order: **Assessment** (reminder) → **Assessment Flow** (the flow diagram) →
+   **Digital Attendance (Mandatory)** (TRAQOM · SSG).
+
+7. **Visual QA before delivery** — render the new/changed slides to images and inspect for
+   overlap, clipping and balance.
+
+## Reference implementation (use this to build PPT + LP + LG)
+
+A complete, working **single-source build pipeline** ships with this skill at
+**`reference/`** (installed at both the user level `~/.claude/skills/wsq-slides/reference/`
+and the project level `.claude/skills/wsq-slides/reference/`). One content module
+(`course_data.py` + `data_domainN.py`) drives **all three** artifacts so they never
+drift: the slide deck (`build_slides.py` — contains every visual component helper), the
+Lesson Plan (`build_lesson_plan.py`) and the Learner Guide (`build_learner_guide.py`),
+plus the shared `prodoc.py` (WSQ cover page + version control + TOC + footer). For any new
+WSQ course, **copy `reference/` into the course repo, edit the data modules, and re-run**
+— see `reference/README.md`. The `wsq-lesson-plan` and `wsq-learner-guide` skills point
+to this same reference.
 
 ## Organisation constants
 
@@ -34,11 +86,15 @@ rules below to every WSQ slide deck you create or revamp.
 2. **Front / title page.** Show the course title, course code, trainer name, version,
    and the **organisation name + UEN** clearly on the title slide.
 
-3. **About the Trainer — two slides.**
-   - A **General Trainer** template with the info left blank (placeholder fields:
-     name, title, qualifications, expertise, experience, contact) so any trainer can
-     fill it in.
-   - The **named trainer** (e.g. Dr. Alfred Ang) with full details.
+3. **About the Trainer — two slides, as visual profile cards** (not bullet lists).
+   Use the **profile-card layout**: a left panel with a round **avatar badge**
+   (initials for the named trainer, a neutral "?" for the template) plus the name and
+   role, and a right column of **labelled info tiles** (one coloured tile per field).
+   - A **General Trainer** template — neutral/grey theme, avatar "?", info tiles left
+     blank with fill-in lines (fields: Name, Title/Designation, Qualifications, Areas
+     of expertise, Training & industry experience, Contact) so any trainer can fill it in.
+   - The **named trainer** (e.g. Dr. Alfred Ang) — accent theme, initials avatar, tiles
+     filled with Role, Certification, Delivers, Founder (or equivalent).
 
 4. **Admin slide order.** The **Briefing for Assessment** slide must come **before**
    the **Assessment / Final Assessment** slide.
@@ -56,29 +112,79 @@ rules below to every WSQ slide deck you create or revamp.
    and **complete the assessment on the LMS** at **https://lms-tms.tertiaryinfotech.com/**.
    Place it near the end (e.g. before the Certification & TRAQOM survey slide).
 
-8. **Assessment flow.** At the assessment step, show the procedure in this order:
+8. **Assessment flow.** Render the procedure as a **horizontal numbered flow diagram**
+   (numbered chips joined by chevrons — not a bullet list), in this order:
    (1) TRAQOM (scan the QR code on the LMS) → (2) Assessment Digital Attendance →
-   (3) Assessment → (4) Submit the assessment answers on the LMS →
+   (3) Assessment (WA then PP, open book) → (4) Submit the assessment answers on the LMS →
    (5) Sign the Assessment Summary Record. The TRAQOM QR code and the assessment
    submission are both on the LMS (https://lms-tms.tertiaryinfotech.com/).
+
+9. **Assessment admin pages at the END of the deck.** Just before the closing
+   *Thank You* slide, repeat the assessment admin block so it is fresh right before
+   learners sit the assessment, in this order:
+   1. **Assessment** — concise reminder (WA 1 hr · PP 1 hr, open book; take the
+      Assessment digital attendance; submit on the LMS).
+   2. **Assessment Flow** — the same horizontal numbered flow diagram as rule 8.
+   3. **Digital Attendance (Mandatory)** — the TRAQOM · SSG digital-attendance page
+      (same content as the front-of-deck attendance slide).
+   Then the **Thank You** closing slide. (TRAQOM here = the SSG **digital attendance**
+   system, not a survey.)
+
+## Visual design system (mandatory)
+
+Decks must look **professional and visual — never a wall of bullet text**. Build slides
+from a small **component library** and reach for a component before a plain bullet list.
+Reference implementation: the AZ-104 course `courseware/build/build_slides.py` helpers
+(`tile_grid`, `flow_h`, `cards3`, `two_col`, `trainer_slide`, `big_statement`,
+`activity_overview`, `step_slide`, `test_slide`, `section`).
+
+**Required components** (use the right one for the content):
+- **Section dividers** — a full-height accent bar, kicker, big title, oversized ghost number.
+- **Tile grid** — a 2-column grid of light panels, each with a coloured numbered/icon
+  badge, a left accent stripe, and a bold lead title + caption. Use for **Key Concepts,
+  Learning Outcomes / What You Achieved, overviews, Ground Rules** — anything that would
+  otherwise be a 4–6 item bullet list.
+- **Horizontal flow diagram** — numbered chips joined by chevrons. Use for the
+  **Assessment Flow** and any step-by-step process.
+- **3-card layout** — three colour-topped cards (blue/teal/violet). Use for grouped
+  comparisons (e.g. lab groupings, options).
+- **Profile cards** — the About-the-Trainer layout (rule 3).
+- **Big statement** — one bold sentence + supporting line, for "why it matters" beats.
+- **Activity / Step / Verify** — coloured tag + description for each hands-on lab, a
+  numbered-circle step slide (with an optional dark code block), and a green "✅ Test it"
+  verify panel.
+
+**Rules of thumb**
+- Colours cycle through the house palette **blue → teal → violet → amber**; keep the
+  all-white background and the footer/kicker system.
+- A concept, outcomes, process or trainer slide must **not** be a plain `bullets`/`content`
+  slide — convert it to the matching component above.
+- Plain bullet slides are acceptable only for genuinely list-like admin content
+  (e.g. Learner Introduction, LMS instructions).
+- Always run visual QA: render the new/changed slides to images and inspect for overlap,
+  clipping and balance before delivering.
 
 ## Recommended canonical order
 
 1. Title (with org name + UEN)
-2. Digital Attendance
-3. About the Trainer — General (blank template)
-4. About the Trainer — Named trainer
+2. Digital Attendance (TRAQOM · SSG)
+3. About the Trainer — General (blank template, profile card)
+4. About the Trainer — Named trainer (profile card)
 5. Learner Introduction ("Let's know each other")
-6. Ground Rules
-7. Course Outline
-8. Lesson Plan
+6. Ground Rules (tile grid)
+7. Course Outline / Lesson Plan
+8. Learning Outcomes (tile grid)
 9. Briefing for Assessment
 10. Assessment & Funding
-11. … topic content + activities …
-12. Summary & Q&A
-13. Courseware & Assessment on the LMS (download courseware, take assessment)
-14. Certification & TRAQOM survey
-15. Thank You
+11. Assessment Flow (horizontal flow diagram)
+12. … topic content + activities (each topic: section divider → Key Concepts tile grid → labs cards → activity/step/verify slides → recap) …
+13. Summary / What You Achieved (tile grid)
+14. Courseware & Assessment on the LMS (download courseware, take assessment)
+15. Practice Exam (if available)
+16. **Assessment** (end reminder — rule 9)
+17. **Assessment Flow** (end flow diagram — rule 9)
+18. **Digital Attendance (Mandatory)** — TRAQOM · SSG (end — rule 9)
+19. Thank You
 
 ## Lesson plan & assessment scheduling
 
@@ -102,8 +208,16 @@ Lesson Plan document) with its start and end time.
 
 ## Design notes
 
-- Build with `pptxgenjs` (LAYOUT_WIDE / 16:9). See the `pptx` skill for mechanics.
-- Keep a clean, modern look: dark title/divider slides, light content slides,
-  one accent colour, icon chips as the repeating motif. No accent stripes/bars.
-- Safe fonts: Cambria (headers) + Calibri (body); Courier New for code.
-- Always run visual QA (render to images, inspect) before delivering.
+- Build 16:9 (13.333 × 7.5 in). Either `python-pptx` (as the AZ-104 reference
+  `build_slides.py` does) or `pptxgenjs` is fine — reuse the **Visual design system**
+  component helpers above rather than laying out shapes ad hoc. See the `pptx` and
+  `tertiary-ppt-design` skills for mechanics.
+- Keep a clean, modern, all-white look with the house palette
+  (blue `1F6FEB` · teal `10B981` · violet `7C3AED` · amber `F59E0B`); one kicker/accent
+  per slide; consistent footer (course · code · © · page number).
+- Prefer components (tile grid, flow diagram, cards, profile cards) over bullet walls —
+  see the mandatory Visual design system section.
+- Safe fonts: Arial throughout (Cambria/Calibri also acceptable); a monospace
+  (Consolas / Courier New) for code blocks.
+- Always run visual QA (render the new/changed slides to images, inspect for overlap and
+  clipping) before delivering.
