@@ -18,3 +18,14 @@
 
 # Playwright MCP artifacts
 .playwright-mcp/
+# Distribution archives (rebuildable — never pushed to GitHub)
+*.zip
+
+# Source material the project was derived from — not ours to republish.
+**/reference/
+# ...except the courseware builder scripts, which the skills actually run.
+!.claude/skills/**/reference/
+!.claude/skills/**/reference/**
+
+# Labs are maintained as their own repository (alfredang/TGS-2025052468-Claude-Code)
+/labs/
