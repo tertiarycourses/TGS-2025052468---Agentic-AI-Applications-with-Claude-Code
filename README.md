@@ -40,7 +40,7 @@ By the end of this course, learners will be able to:
 |---|---|---|
 | **1 — Claude Code Fundamentals** | Setup (Terminal, VS Code, Desktop); the agentic loop & built-in tools; context engineering and the context window (`/context`, `/compact`, `/clear`); memory files (`CLAUDE.md` vs auto memory, `/init`, `/memory`); permission modes and the dangers of bypass permissions; sessions, scheduled tasks (Routines) and `/goal`; the 7-step build workflow. | **Activity 1** — Build & deploy a website (Steps 1–7) |
 | **2 — Tools and Commands** | The `.claude` directory; custom slash commands and arguments; MCP architecture and connecting servers; Playwright MCP. | **Activity 2** — Create a `/gitpush` command<br>**Activity 3** — Install & use Playwright MCP<br>**Activity 3B** — Test the enquiry form |
-| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; the mini-capstone. | **Activity 4** — Install & run skills<br>**Activity 5** — Create custom sub agents<br>**Activity 6 / Mini Capstone** — Test, convert & present |
+| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; the mini-capstone. | **Activity 4** — Install & run skills<br>**Activity 5** — Create custom sub agents<br>**Activity 6** — Floating WhatsApp widget (auto-open hook) |
 
 > Lab files are maintained in a separate repository so learners can clone them independently.
 
@@ -60,11 +60,11 @@ By the end of this course, learners will be able to:
 ```
 .
 ├── courseware/                  # Trainer & learner materials (DOCX + PDF/PPTX only)
-│   ├── Agentic AI Applications with Claude Code - v14.pptx   # Slide deck (66 slides)
+│   ├── Agentic AI Applications with Claude Code - v14.pptx   # Slide deck (67 slides)
 │   ├── Agentic AI Applications with Claude Code - v14.pdf
-│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.3)
+│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.4)
 │   ├── LG-Agentic AI Applications with Claude Code.pdf
-│   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.4)
+│   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.5)
 │   └── LP-Agentic AI Applications with Claude Code.pdf
 ├── .claude/skills/              # House courseware build skills
 │   ├── wsq-slides/              #   slide deck generator (+ reference/ build pipeline)
