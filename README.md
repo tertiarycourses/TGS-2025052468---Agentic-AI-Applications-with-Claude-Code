@@ -38,11 +38,11 @@ By the end of this course, learners will be able to:
 
 | Topic | Covers | Labs |
 |---|---|---|
-| **1 — Claude Code Fundamentals** | Setup (Terminal, VS Code, Desktop); the agentic loop & built-in tools; context engineering and the context window (`/context`, `/compact`, `/clear`); memory files (`CLAUDE.md` vs auto memory, `/init`, `/memory`); permission modes and the dangers of bypass permissions; sessions, scheduled tasks (Routines) and `/goal`; the 7-step build workflow. | **Activity 1** — Build & deploy a website (Steps 1–7) |
-| **2 — Tools and Commands** | The `.claude` directory; custom slash commands and arguments; MCP architecture and connecting servers; Playwright MCP. | **Activity 2** — Create a `/gitpush` command<br>**Activity 3** — Install & use Playwright MCP<br>**Activity 3B** — Test the enquiry form |
-| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; the mini-capstone. | **Activity 4** — Install & run skills<br>**Activity 5** — Create custom sub agents<br>**Activity 6** — Floating WhatsApp widget (auto-open hook) |
+| **1 — Claude Code Fundamentals** | Setup (Terminal, VS Code, Desktop); the agentic loop & built-in tools; context engineering and the context window (`/context`, `/compact`, `/clear`); memory files (`CLAUDE.md` vs auto memory, `/init`, `/memory`); permission modes and the dangers of bypass permissions; sessions, scheduled tasks (Routines) and `/goal`; the 7-step build workflow. | **Lab 1** — Build & deploy a website with the 7-step workflow (Activity 1A/1B) |
+| **2 — Tools and Commands** | The `.claude` directory; custom slash commands and arguments; MCP architecture and connecting servers; Playwright MCP. | **Lab 1b** — A `/publish` custom command + Playwright MCP screenshots into the README (Activities 2, 3, 3B) |
+| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; the mini-capstone; a key-concepts recap of **what triggers what** — `CLAUDE.md` (every session), skills & tools (on demand), slash commands (manual), hooks (by event), sub agents (by delegation). | **Lab 2** — Install 3 skills & revamp the site (Activity 4)<br>**Lab 3** — Hooks, sub agents and `/loop` (Activities 5, 6) |
 
-> Lab files are maintained in a separate repository so learners can clone them independently.
+> Lab files are maintained in a [separate repository](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code) so learners can clone them independently. Each lab lives in its own folder (`lab1-seven-steps/`, `lab1b-commands-mcp/`, `lab2-skills/`, `lab3-hooks/`) with the exact prompts for every step.
 
 ## Tools Used
 
@@ -60,11 +60,11 @@ By the end of this course, learners will be able to:
 ```
 .
 ├── courseware/                  # Trainer & learner materials (DOCX + PDF/PPTX only)
-│   ├── Agentic AI Applications with Claude Code - v14.pptx   # Slide deck (67 slides)
-│   ├── Agentic AI Applications with Claude Code - v14.pdf
-│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.4)
+│   ├── Agentic AI Applications with Claude Code - v15.pptx   # Slide deck (70 slides)
+│   ├── Agentic AI Applications with Claude Code - v15.pdf
+│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.7)
 │   ├── LG-Agentic AI Applications with Claude Code.pdf
-│   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.5)
+│   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.8)
 │   └── LP-Agentic AI Applications with Claude Code.pdf
 ├── .claude/skills/              # House courseware build skills
 │   ├── wsq-slides/              #   slide deck generator (+ reference/ build pipeline)

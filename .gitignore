@@ -29,3 +29,6 @@
 
 # Labs are maintained as their own repository (alfredang/TGS-2025052468-Claude-Code)
 /labs/
+
+# Local environment (course + Drive links, written by gdrive_push.py)
+.env
