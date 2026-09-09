@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthPoint Systems — We Build Software That Scales</title>
+<meta name="description" content="NorthPoint Systems builds custom software, cloud platforms and integrations for growing companies. Get a quote today.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#top">North<span>Point</span></a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ---------------------------------------------------------- Hero -->
+<section class="hero">
+  <div class="container hero__inner">
+    <h1 class="hero__title">We Build Software That Scales</h1>
+    <p class="hero__sub">Custom platforms, cloud architecture and integrations — delivered by a senior team.</p>
+    <p class="hero__lede">
+      From first prototype to production traffic, NorthPoint Systems designs and ships
+      software that keeps working as your business grows.
+    </p>
+    <a class="btn btn--primary" href="#contact">Get a Quote</a>
+  </div>
+</section>
+
+<!-- ------------------------------------------------------ Services -->
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section__title">What We Do</h2>
+    <div class="grid grid--3">
+      <article class="card">
+        <h3>Product Engineering</h3>
+        <p>Web and mobile products built to last — from discovery through to launch and iteration.</p>
+      </article>
+      <article class="card">
+        <h3>Cloud &amp; Platform</h3>
+        <p>Architecture, migration and cost control on AWS, Azure and Google Cloud.</p>
+      </article>
+      <article class="card">
+        <h3>Integration &amp; APIs</h3>
+        <p>Connect the systems you already run — payments, CRM, ERP and data pipelines.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- -------------------------------------------------- Testimonials -->
+<section class="section section--alt" id="testimonials">
+  <div class="container">
+    <h2 class="section__title">What Our Clients Say</h2>
+    <div class="grid grid--3">
+
+      <article class="card testimonial">
+        <p class="testimonial__quote">
+          “They rebuilt our booking platform in four months. It has handled every
+          peak season since without a single outage.”
+        </p>
+        <div class="testimonial__person">
+          <span class="avatar" aria-hidden="true">SL</span>
+          <span>
+            <strong>Serene Lim</strong>
+            <small>Operations Director, Harbourline Travel</small>
+          </span>
+        </div>
+      </article>
+
+      <article class="card testimonial">
+        <p class="testimonial__quote">
+          “The team took a decade of messy spreadsheets and turned them into a
+          clean, reliable reporting system our finance team actually enjoys.”
+        </p>
+        <div class="testimonial__person">
+          <span class="avatar" aria-hidden="true">RK</span>
+          <span>
+            <strong>Rajesh Kumar</strong>
+            <small>CFO, Meridian Logistics</small>
+          </span>
+        </div>
+      </article>
+
+      <article class="card testimonial">
+        <p class="testimonial__quote">
+          “Genuinely senior engineers. They pushed back on the wrong ideas early
+          and saved us a rewrite we would have regretted.”
+        </p>
+        <div class="testimonial__person">
+          <span class="avatar" aria-hidden="true">AT</span>
+          <span>
+            <strong>Amanda Tan</strong>
+            <small>Head of Product, Civet Health</small>
+          </span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------- Enquiry -->
+<section class="section" id="contact">
+  <div class="container container--narrow">
+    <h2 class="section__title">Get in Touch</h2>
+    <p class="section__lede">Tell us what you are building and we will come back within one working day.</p>
+
+    <form id="enquiryForm" class="form" novalidate>
+      <div class="field">
+        <label for="name">Name <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name">
+        <p class="error" id="nameError" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email">
+        <p class="error" id="emailError" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone <small>(optional)</small></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+        <p class="error" id="phoneError" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="service">Service interested in</label>
+        <select id="service" name="service">
+          <option value="Product Engineering">Product Engineering</option>
+          <option value="Cloud &amp; Platform">Cloud &amp; Platform</option>
+          <option value="Integration &amp; APIs">Integration &amp; APIs</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <p class="error" id="messageError" role="alert"></p>
+      </div>
+
+      <button class="btn btn--primary" type="submit">Send Enquiry</button>
+      <p class="success" id="formSuccess" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> NorthPoint Systems. Built with Claude Code.</p>
+    <p class="footer__note">Powered by Tertiary Infotech Academy Pte Ltd</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

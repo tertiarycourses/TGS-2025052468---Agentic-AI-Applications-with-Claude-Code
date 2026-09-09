@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA & ARCH — Luxury Interior Design Studio</title>
+    <meta name="description" content="A collective of visionary architects and designers crafting bespoke, minimalist environments. Discover our selected works, philosophy, and schedule a consultation.">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Navigation Header -->
+    <header id="mainHeader">
+        <div class="container nav-container">
+            <a href="#" class="logo">AURA<span>&</span>ARCH</a>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#showcase">Showcase</a></li>
+                    <li><a href="#philosophy">Philosophy</a></li>
+                    <li><a href="#booking">Consultation</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-btn">
+                <a href="#booking" class="btn btn-secondary">Inquire</a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Toggle Menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="bg-grid-lines">
+            <div class="bg-line bg-line-v bg-line-v-1"></div>
+            <div class="bg-line bg-line-v bg-line-v-2"></div>
+        </div>
+
+        <div class="hero-grid">
+            <div class="hero-content reveal-fade">
+                <span class="section-tag">Bespoke Architecture & Design</span>
+                <h1 class="hero-title">
+                    CREATING SPACES<br>THAT <span>whisper luxury.</span>
+                </h1>
+                <p class="hero-desc">
+                    A collective of visionary architects and interior designers crafting bespoke, minimalist environments. We design the silent backdrop to your finest moments.
+                </p>
+                <div class="hero-cta">
+                    <a href="#showcase" class="btn btn-primary">
+                        View Portfolio
+                        <i data-lucide="arrow-right" class="btn-arrow" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper reveal-fade delay-2">
+                <img src="assets/images/hero_interior.png" alt="Luxury Japandi Living Room by Aura & Arch" class="hero-image">
+            </div>
+        </div>
+
+        <div class="scroll-indicator reveal-fade delay-3">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Showcase / Portfolio Section -->
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="showcase-header reveal-fade">
+                <div>
+                    <span class="section-tag">Our Portfolio</span>
+                    <h2 class="section-title">Selected <span>works.</span></h2>
+                </div>
+                <div class="filter-wrapper">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="residential">Residential</button>
+                    <button class="filter-btn" data-filter="commercial">Commercial</button>
+                </div>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Item 1 (Residential) -->
+                <div class="showcase-item item-1 reveal-fade" data-category="residential">
+                    <div class="showcase-img-container">
+                        <img src="assets/images/hero_interior.png" alt="The Japandi Residence">
+                    </div>
+                    <div class="showcase-overlay">
+                        <div class="showcase-info">
+                            <span class="showcase-category">Residential</span>
+                            <h3 class="showcase-item-title">The Japandi Residence</h3>
+                            <div class="showcase-meta">
+                                <span>Tokyo, JP</span>
+                                <span>2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Residential) -->
+                <div class="showcase-item item-2 reveal-fade delay-1" data-category="residential">
+                    <div class="showcase-img-container">
+                        <img src="assets/images/showcase_brutalist.png" alt="The Brutalist Kitchen">
+                    </div>
+                    <div class="showcase-overlay">
+                        <div class="showcase-info">
+                            <span class="showcase-category">Residential</span>
+                            <h3 class="showcase-item-title">The Brutalist Kitchen</h3>
+                            <div class="showcase-meta">
+                                <span>Zurich, CH</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Residential) -->
+                <div class="showcase-item item-3 reveal-fade" data-category="residential">
+                    <div class="showcase-img-container">
+                        <img src="assets/images/showcase_parisian.png" alt="The Parisian Atelier">
+                    </div>
+                    <div class="showcase-overlay">
+                        <div class="showcase-info">
+                            <span class="showcase-category">Residential</span>
+                            <h3 class="showcase-item-title">The Parisian Atelier</h3>
+                            <div class="showcase-meta">
+                                <span>Paris, FR</span>
+                                <span>2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Commercial) -->
+                <div class="showcase-item item-4 reveal-fade delay-1" data-category="commercial">
+                    <div class="showcase-img-container">
+                        <img src="assets/images/showcase_japandi.png" alt="The Serene Library">
+                    </div>
+                    <div class="showcase-overlay">
+                        <div class="showcase-info">
+                            <span class="showcase-category">Commercial</span>
+                            <h3 class="showcase-item-title">The Serene Library</h3>
+                            <div class="showcase-meta">
+                                <span>Copenhagen, DK</span>
+                                <span>2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <div class="philosophy-grid">
+                <div class="philosophy-intro reveal-fade">
+                    <span class="section-tag">Our Philosophy</span>
+                    <h2 class="philosophy-title">Crafting the silent <span>language of space.</span></h2>
+                    <p class="philosophy-lead">We believe that great design is not felt through what is added, but realized through what is left behind.</p>
+                    <p class="philosophy-text">
+                        Aura & Arch operates at the intersection of architecture and emotional well-being. Our approach is grounded in the beauty of imperfection, natural textures, and precise spatial layout. We collaborate with craftsmen worldwide to deliver environments tailored to the modern lifestyle.
+                    </p>
+                    <a href="#booking" class="btn btn-secondary">
+                        Start Your Project
+                        <i data-lucide="arrow-right" class="btn-arrow" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <div class="pillars-tabs reveal-fade delay-2">
+                    <!-- Pillar 1 -->
+                    <div class="pillar-item active" data-pillar="0">
+                        <div class="pillar-header">
+                            <h3 class="pillar-title">Light & Shadow</h3>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <span class="pillar-num">01</span>
+                                <i data-lucide="plus" class="pillar-icon" style="width: 18px; height: 18px;"></i>
+                            </div>
+                        </div>
+                        <div class="pillar-content">
+                            <p>We harness daylight as a tangible material, using it to sculpt dimensions, accentuate textures, and create shifting atmospheres throughout the day.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="pillar-item" data-pillar="1">
+                        <div class="pillar-header">
+                            <h3 class="pillar-title">Honest Materials</h3>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <span class="pillar-num">02</span>
+                                <i data-lucide="plus" class="pillar-icon" style="width: 18px; height: 18px;"></i>
+                            </div>
+                        </div>
+                        <div class="pillar-content">
+                            <p>From raw concrete and travertine to hand-spun linen and dark stained oak, we curate elements in their most authentic, tactile form.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="pillar-item" data-pillar="2">
+                        <div class="pillar-header">
+                            <h3 class="pillar-title">Spatial Rhythm</h3>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <span class="pillar-num">03</span>
+                                <i data-lucide="plus" class="pillar-icon" style="width: 18px; height: 18px;"></i>
+                            </div>
+                        </div>
+                        <div class="pillar-content">
+                            <p>We believe in the power of negative space. Our layouts breathe, encouraging quiet pause and a refined flow of movement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Consultation Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-info reveal-fade">
+                    <div>
+                        <span class="section-tag">Consultation</span>
+                        <h2 class="section-title">Let's shape <span>your space.</span></h2>
+                        <p>We accept a limited number of commissions each year to ensure uncompromising focus on every project. Contact us today to schedule your private design consultation.</p>
+                    </div>
+
+                    <div class="booking-details">
+                        <div class="booking-detail-item">
+                            <h4 class="booking-detail-title">Our Studio</h4>
+                            <p class="booking-detail-val">Tokyo • Zurich • Paris</p>
+                        </div>
+                        <div class="booking-detail-item">
+                            <h4 class="booking-detail-title">Inquiries</h4>
+                            <p class="booking-detail-val">studio@auraandarch.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form-container reveal-fade delay-2">
+                    <!-- FormSubmit Integration -->
+                    <form action="https://formsubmit.co/ajax/your-email@example.com" method="POST" class="booking-form" id="bookingForm">
+                        <!-- Anti-Spam Honeypot -->
+                        <input type="text" name="_honey" style="display:none">
+                        <!-- Custom Subject -->
+                        <input type="hidden" name="_subject" value="New Design Consultation Inquiry — Aura & Arch">
+                        <!-- Disable Captcha (AJAX requires this to avoid redirect) -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Full Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email Address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="project_type" id="projectType" class="form-input form-select" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Residential">Residential Space</option>
+                                <option value="Commercial">Commercial/Retail Space</option>
+                                <option value="Bespoke furniture">Bespoke Furniture</option>
+                            </select>
+                            <label for="projectType" class="form-label">Project Type</label>
+                            <i data-lucide="chevron-down" class="select-arrow" style="width: 16px; height: 16px;"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="budget" id="budget" class="form-input form-select" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="$50k - $100k">$50,000 – $100,000</option>
+                                <option value="$100k - $250k">$100,000 – $250,000</option>
+                                <option value="$250k+">$250,000+</option>
+                            </select>
+                            <label for="budget" class="form-label">Estimated Budget</label>
+                            <i data-lucide="chevron-down" class="select-arrow" style="width: 16px; height: 16px;"></i>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <textarea name="message" id="message" class="form-input" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">Tell us about your vision...</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">
+                            <span>Submit Inquiry</span>
+                            <i data-lucide="arrow-right" class="btn-arrow" style="width: 16px; height: 16px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">AURA<span>&</span>ARCH</a>
+                    <p class="footer-desc">Bespoke architectural design and high-end residential interiors. Sculpting spaces with light, texture, and silence.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" style="width: 20px; height: 20px;"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i data-lucide="pinterest" style="width: 20px; height: 20px;"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i data-lucide="linkedin" style="width: 20px; height: 20px;"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#showcase">Showcase</a></li>
+                        <li><a href="#philosophy">Philosophy</a></li>
+                        <li><a href="#booking">Consultation</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Subscribe to receive architectural insights and studio updates.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" class="newsletter-input" required aria-label="Email Address">
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i data-lucide="send" style="width: 16px; height: 16px;"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aura & Arch. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal Popup -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <i data-lucide="check-circle" class="modal-icon" style="width: 64px; height: 64px; stroke-width: 1px;"></i>
+            <h3 class="modal-title">INQUIRY RECEIVED</h3>
+            <p class="modal-desc">Thank you for reaching out to Aura & Arch. Your inquiry has been transmitted securely. A design director will contact you within 24 hours to schedule your private consultation.</p>
+            <button class="btn btn-primary" id="closeModalBtn">Close Window</button>
+        </div>
+    </div>
+
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Logic Script -->
+    <script src="script.js"></script>
+</body>
+</html>

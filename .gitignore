@@ -26,8 +26,13 @@ courseware/archive/
 **/reference/
 # ...except the courseware builder scripts, which the skills actually run.
 
-# Labs are maintained as their own repository (alfredang/TGS-2025052468-Claude-Code)
-/labs/
+# Lab-local credentials and runtime artifacts remain excluded even though learner labs are published.
+/labs/.env
+/labs/**/.env
+/labs/.mcp.json
+/labs/**/.mcp.json
+/labs/**/node_modules/
+/labs/**/.playwright-mcp/
 
 # Local environment (course + Drive links, written by gdrive_push.py)
 .env

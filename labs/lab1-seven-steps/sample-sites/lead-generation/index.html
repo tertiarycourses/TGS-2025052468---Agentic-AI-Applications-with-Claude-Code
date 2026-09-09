@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Generator SG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <h1 class="logo">Lead Generator <span class="logo-accent">SG</span></h1>
+      <p class="subtitle">B2B Lead Discovery Tool</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+      <span class="theme-icon" id="themeIcon">&#9790;</span>
+    </button>
+  </header>
+
+  <main class="main">
+    <section class="search-panel">
+      <h2 class="section-title">Search Criteria</h2>
+      <form id="searchForm" class="search-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Sector / Industry</label>
+            <div class="multi-select" id="sectorSelect">
+              <button type="button" class="multi-select-btn">
+                <span class="multi-select-label">Select sectors...</span>
+                <span class="multi-select-count" style="display:none">0</span>
+                <span class="chevron">&#9662;</span>
+              </button>
+              <div class="multi-select-dropdown"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Job Titles</label>
+            <div class="multi-select" id="jobTitleSelect">
+              <button type="button" class="multi-select-btn">
+                <span class="multi-select-label">Select job titles...</span>
+                <span class="multi-select-count" style="display:none">0</span>
+                <span class="chevron">&#9662;</span>
+              </button>
+              <div class="multi-select-dropdown"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="targetGroup">Target Group</label>
+            <select id="targetGroup" class="form-select">
+              <option value="">All target groups</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" class="form-input" value="Singapore" placeholder="e.g. Singapore, Jurong East">
+          </div>
+          <div class="form-group">
+            <label for="keywords">Keywords <span class="optional">(optional)</span></label>
+            <input type="text" id="keywords" class="form-input" placeholder="e.g. cloud, AI, consulting">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="generateBtn">
+            <span class="btn-text">Generate Leads</span>
+            <span class="btn-spinner" style="display:none"></span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-panel" id="resultsPanel">
+      <div class="results-header">
+        <div class="results-info">
+          <h2 class="section-title">Results</h2>
+          <span class="results-count" id="resultsCount" style="display:none">0 leads found</span>
+        </div>
+        <button class="btn btn-export" id="exportBtn" style="display:none">Export CSV</button>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">&#128269;</div>
+        <p>Configure your search criteria and click <strong>Generate Leads</strong> to discover B2B contacts in Singapore.</p>
+      </div>
+
+      <div class="loading-state" id="loadingState" style="display:none">
+        <div class="spinner"></div>
+        <p>Searching for leads... This may take a moment.</p>
+      </div>
+
+      <div class="error-state" id="errorState" style="display:none">
+        <div class="error-icon">&#9888;</div>
+        <p class="error-message" id="errorMessage"></p>
+        <button class="btn btn-secondary" id="retryBtn">Retry</button>
+      </div>
+
+      <div class="table-container" id="tableContainer" style="display:none">
+        <table class="leads-table" id="leadsTable">
+          <thead>
+            <tr>
+              <th data-sort="companyName">Company <span class="sort-icon"></span></th>
+              <th data-sort="industry">Industry <span class="sort-icon"></span></th>
+              <th data-sort="contactPerson">Contact <span class="sort-icon"></span></th>
+              <th data-sort="jobTitle">Job Title <span class="sort-icon"></span></th>
+              <th data-sort="email">Email <span class="sort-icon"></span></th>
+              <th data-sort="phone">Phone <span class="sort-icon"></span></th>
+              <th data-sort="website">Website <span class="sort-icon"></span></th>
+              <th data-sort="location">Location <span class="sort-icon"></span></th>
+            </tr>
+          </thead>
+          <tbody id="leadsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="pagination" id="pagination" style="display:none">
+        <button class="btn btn-page" id="prevPage">&#8592; Prev</button>
+        <span class="page-info" id="pageInfo"></span>
+        <button class="btn btn-page" id="nextPage">Next &#8594;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Powered by <a href="https://www.tertiarycourses.com.sg/" target="_blank" rel="noopener noreferrer">Tertiary Infotech Academy Pte Ltd</a></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="export.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

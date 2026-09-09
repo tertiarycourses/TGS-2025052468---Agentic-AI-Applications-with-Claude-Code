@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Étoile Bridal — Luxury Bridal Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Pink & Oriental palette */
+    --sakura: #ffd1dc;        /* cherry blossom pink */
+    --sakura-soft: #ffe6ec;   /* lighter blossom */
+    --rose: #e88aa3;          /* rose */
+    --rose-deep: #c96887;     /* deeper rose */
+    --plum: #6b2a3d;          /* plum (deep wine) */
+    --plum-soft: #8a3a52;
+    --gold: #c9a44c;          /* oriental gold */
+    --gold-dark: #9c7a2e;
+    --jade: #5b8c7a;          /* jade accent */
+    --jade-soft: #8fb3a3;
+    --cream: #fbf4ee;         /* cream background */
+    --blush-bg: #fdeef1;      /* blush background */
+    --ivory: #fffaf6;
+    --text: #3a2230;          /* deep plum-ish */
+    --text-soft: #6b5260;
+    --white: #ffffff;
+    --shadow-sm: 0 4px 16px rgba(201, 104, 135, 0.10);
+    --shadow-md: 0 12px 40px rgba(107, 42, 61, 0.14);
+    --shadow-lg: 0 24px 60px rgba(107, 42, 61, 0.18);
+    --radius: 18px;
+    --radius-lg: 24px;
+    --serif: 'Playfair Display', 'Noto Serif JP', 'Times New Roman', serif;
+    --serif-jp: 'Noto Serif JP', 'Playfair Display', serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Seigaiha (wave) SVG pattern */
+    --seigaiha: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%23c96887' stroke-width='1' opacity='0.25'><circle cx='0' cy='40' r='20'/><circle cx='40' cy='40' r='20'/><circle cx='80' cy='40' r='20'/><circle cx='0' cy='40' r='12'/><circle cx='40' cy='40' r='12'/><circle cx='80' cy='40' r='12'/><circle cx='0' cy='40' r='5'/><circle cx='40' cy='40' r='5'/><circle cx='80' cy='40' r='5'/><circle cx='20' cy='20' r='20'/><circle cx='60' cy='20' r='20'/><circle cx='20' cy='20' r='12'/><circle cx='60' cy='20' r='12'/><circle cx='20' cy='20' r='5'/><circle cx='60' cy='20' r='5'/></g></svg>");
+
+    /* Sakura petal SVG */
+    --sakura-svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><g fill='%23e88aa3' opacity='0.10'><path d='M30 40c5-10 15-10 18 0c0 8 -8 12 -16 8c-6-3 -5-5 -2-8z'/><path d='M150 70c5-8 12-8 15 0c0 7 -7 11 -14 7c-5-2 -4-4 -1-7z'/><path d='M80 140c4-7 11-7 14 0c0 6 -7 10 -13 7c-4-2 -4-4 -1-7z'/><path d='M170 160c3-6 9-6 11 0c0 5 -6 8 -11 6c-3-2 -3-4 0-6z'/><path d='M40 170c3-6 9-6 11 0c0 5 -6 8 -11 6c-3-2 -3-4 0-6z'/></g></svg>");
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    background-image: var(--sakura-svg);
+    background-attachment: fixed;
+    background-size: 360px 360px;
+  }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    color: var(--plum);
+    letter-spacing: 0.3px;
+  }
+  h1 { font-size: clamp(2.2rem, 5.6vw, 4.4rem); line-height: 1.1; font-weight: 600; }
+  h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); line-height: 1.2; }
+  h3 { font-size: 1.5rem; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Gold hairline divider */
+  .divider {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 22px;
+    position: relative;
+  }
+  .divider::before {
+    content: '❀';
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--rose);
+    background: var(--cream);
+    padding: 0 8px;
+    font-size: 0.8rem;
+  }
+
+  /* ===== Navigation ===== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(253, 238, 241, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 1000;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+    border-bottom: 1px solid rgba(201, 164, 76, 0.20);
+  }
+  .nav.scrolled { box-shadow: var(--shadow-sm); background: rgba(253, 238, 241, 0.96); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--plum);
+    letter-spacing: 1.5px;
+    text-decoration: none;
+  }
+  .logo span { color: var(--rose); font-style: italic; padding: 0 4px; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--plum);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.25s;
+    padding: 6px 0;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--rose-deep); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--plum);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== Buttons ===== */
+  .btn {
+    display: inline-block;
+    padding: 14px 36px;
+    min-height: 44px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: var(--white);
+    box-shadow: 0 8px 22px rgba(201, 104, 135, 0.35);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--rose-deep), var(--plum));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(107, 42, 61, 0.40);
+  }
+  .btn-primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .btn-outline {
+    background: transparent;
+    color: var(--plum);
+    border: 1.5px solid var(--rose);
+  }
+  .btn-outline:hover {
+    background: var(--rose);
+    color: var(--white);
+    border-color: var(--rose);
+  }
+  .btn-outline:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(135deg, rgba(107, 42, 61, 0.55), rgba(201, 104, 135, 0.45)),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--seigaiha);
+    background-size: 120px 60px;
+    opacity: 0.35;
+    z-index: -1;
+    mix-blend-mode: overlay;
+  }
+  .hero-content { max-width: 820px; position: relative; }
+  .hero-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--sakura);
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    color: var(--white);
+    margin-bottom: 22px;
+    font-weight: 500;
+    text-shadow: 0 4px 24px rgba(58, 34, 48, 0.4);
+  }
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 38px;
+    color: #fff5f7;
+    font-weight: 400;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .hero-divider::before {
+    content: '✿';
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--sakura);
+    font-size: 0.9rem;
+  }
+
+  /* ===== Section base ===== */
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+  .section-eyebrow {
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--rose-deep);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-soft);
+    max-width: 640px;
+    margin: 18px auto 64px;
+    font-size: 1.02rem;
+  }
+
+  /* Top hairline ornament between sections */
+  section + section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 140px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ===== About ===== */
+  .about { background: var(--ivory); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(201, 104, 135, 0.20);
+    aspect-ratio: 4/5;
+  }
+  .about-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201, 164, 76, 0.5);
+    border-radius: var(--radius-lg);
+    pointer-events: none;
+    margin: 10px;
+  }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; }
+  .about-text h2 { margin-bottom: 22px; }
+  .about-text p {
+    color: var(--text-soft);
+    margin-bottom: 16px;
+    font-size: 1.02rem;
+  }
+  .about-features {
+    list-style: none;
+    margin-top: 28px;
+  }
+  .about-features li {
+    padding: 10px 0;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .about-features li::before {
+    content: '❀';
+    color: var(--rose);
+    font-size: 1.05rem;
+  }
+
+  /* ===== Packages ===== */
+  .packages {
+    background: linear-gradient(180deg, var(--blush-bg), var(--sakura-soft));
+    overflow: hidden;
+  }
+  .packages::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--seigaiha);
+    background-size: 160px 80px;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .packages > .container { position: relative; }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+  .package-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(201, 104, 135, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201, 164, 76, 0.18);
+  }
+  .package-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sakura), var(--rose), var(--gold), var(--rose-deep));
+  }
+  .package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 60px rgba(201, 104, 135, 0.25);
+  }
+  .package-card.featured {
+    background: linear-gradient(180deg, var(--white), #fff5f8);
+    border: 1.5px solid var(--rose);
+    box-shadow: 0 18px 50px rgba(201, 104, 135, 0.20);
+  }
+  .package-badge {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  .package-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.65rem;
+    color: var(--plum);
+  }
+  .package-desc {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    min-height: 48px;
+  }
+  .package-meta {
+    list-style: none;
+    margin: 24px 0;
+    text-align: left;
+    border-top: 1px solid rgba(201, 164, 76, 0.30);
+    border-bottom: 1px solid rgba(201, 164, 76, 0.30);
+    padding: 22px 0;
+  }
+  .package-meta li {
+    padding: 8px 0;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .package-meta li span:first-child { color: var(--text); font-weight: 500; }
+  .package-price {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--rose-deep);
+    margin: 18px 0 4px;
+    font-weight: 600;
+  }
+  .package-price small {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--text-soft);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  /* ===== Gallery ===== */
+  .gallery { background: var(--cream); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: 16px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(201, 104, 135, 0.15);
+    border: 1px solid rgba(201, 164, 76, 0.18);
+  }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(107, 42, 61, 0.55));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item:hover::after { opacity: 1; }
+
+  /* ===== Booking ===== */
+  .booking { background: var(--ivory); }
+  .booking-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, var(--blush-bg), var(--sakura-soft));
+    border-radius: var(--radius-lg);
+    padding: 56px 48px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(201, 164, 76, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .booking-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--seigaiha);
+    background-size: 100px 50px;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .booking-wrap > * { position: relative; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--plum);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .form-group label .req { color: var(--rose-deep); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 14px 18px;
+    min-height: 48px;
+    background: var(--white);
+    border: 1.5px solid rgba(201, 164, 76, 0.30);
+    border-radius: 12px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: border-color 0.25s, box-shadow 0.25s;
+    box-shadow: 0 2px 8px rgba(201, 104, 135, 0.06);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--rose);
+    box-shadow: 0 0 0 4px rgba(232, 138, 163, 0.20);
+  }
+  .form-group input.error,
+  .form-group select.error,
+  .form-group textarea.error {
+    border-color: #c05656;
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-error {
+    color: #b04444;
+    font-size: 0.82rem;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+  }
+  .form-group.invalid .form-error { display: block; }
+  .form-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .success-message {
+    display: none;
+    background: linear-gradient(135deg, var(--sakura), var(--sakura-soft));
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .success-message.show { display: block; animation: fadeUp 0.5s ease; }
+  .success-message h3 { color: var(--plum); margin-bottom: 10px; font-size: 1.6rem; }
+  .success-message p { color: var(--text); }
+
+  /* ===== Contact ===== */
+  .contact {
+    background: linear-gradient(180deg, var(--plum), #4a1d2c);
+    color: var(--sakura-soft);
+    padding: 80px 0 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--seigaiha);
+    background-size: 140px 70px;
+    opacity: 0.30;
+    pointer-events: none;
+  }
+  .contact > .container { position: relative; }
+  .contact .section-eyebrow { color: var(--gold); }
+  .contact .section-title { color: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  .contact-item h4 {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  .contact-item p, .contact-item a {
+    color: var(--sakura-soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .contact-item a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+  .contact-item a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+  .socials {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+  }
+  .socials a {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(201, 164, 76, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s, border-color 0.3s;
+    color: var(--sakura-soft);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .socials a:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(201, 164, 76, 0.25);
+    padding-top: 26px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 230, 236, 0.75);
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .booking-wrap { padding: 44px 24px; }
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 220px;
+    }
+    section { padding: 72px 0; }
+  }
+  @media (max-width: 720px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      flex-direction: column;
+      background: var(--blush-bg);
+      gap: 0;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid rgba(201, 164, 76, 0.25);
+    }
+    .nav-links.open { max-height: 500px; }
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(201, 164, 76, 0.18);
+    }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a {
+      display: block;
+      padding: 18px 0;
+      font-size: 0.9rem;
+    }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 240px;
+    }
+    .gallery-item.tall { grid-row: span 1; }
+    .hero { padding: 100px 20px 60px; }
+    .hero p { font-size: 1rem; }
+    .hero-eyebrow { font-size: 0.95rem; letter-spacing: 3px; }
+    .container { padding: 0 20px; }
+    section { padding: 64px 0; }
+    .section-subtitle { margin-bottom: 44px; }
+    .package-card { padding: 40px 26px; }
+    .booking-wrap { padding: 36px 20px; }
+  }
+  @media (max-width: 400px) {
+    .btn { padding: 14px 28px; font-size: 0.8rem; letter-spacing: 1.4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">Étoile<span>·</span>Bridal</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#booking">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-eyebrow">桜 · Luxury Bridal Photography</p>
+    <h1>Capture Your Perfect Bridal Moments</h1>
+    <div class="hero-divider"></div>
+    <p>Elegant bridal photography packages for pre-wedding, wedding day, and studio shoots — styled with grace and oriental charm.</p>
+    <a href="#booking" class="btn btn-primary cta-book">Book a Session</a>
+  </div>
+</header>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-eyebrow reveal">Our Story</p>
+    <h2 class="section-title reveal">Timeless Memories, Beautifully Captured</h2>
+    <span class="divider reveal"></span>
+    <p class="section-subtitle reveal">Where every glance, every smile, and every quiet moment becomes a piece of art.</p>
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=80" alt="Bridal portrait" />
+      </div>
+      <div class="about-text reveal">
+        <h2>Crafted with love, styled with grace.</h2>
+        <p>At Étoile Bridal, we believe your wedding photography should feel as effortless and elegant as the day itself. Our award-winning team blends fine-art composition with romantic storytelling to deliver heirloom imagery you'll treasure for generations.</p>
+        <p>From intimate studio portraits to sweeping outdoor pre-wedding shoots, we tailor every session to your vision — drawing inspiration from cherry blossoms, silk, and timeless oriental elegance.</p>
+        <ul class="about-features">
+          <li>Award-winning professional photographers</li>
+          <li>Elegant on-location styling &amp; direction</li>
+          <li>Indoor studio &amp; outdoor destination shoots</li>
+          <li>Personalized packages for every couple</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Packages ===== -->
+<section class="packages" id="packages">
+  <div class="container">
+    <p class="section-eyebrow reveal">Photography Packages</p>
+    <h2 class="section-title reveal">Curated Experiences</h2>
+    <span class="divider reveal"></span>
+    <p class="section-subtitle reveal">Three signature collections, each thoughtfully designed for your most precious moments.</p>
+    <div class="package-grid">
+
+      <div class="package-card reveal">
+        <h3>Classic Bridal Shoot</h3>
+        <p class="package-desc">An intimate studio portrait session highlighting timeless bridal elegance.</p>
+        <ul class="package-meta">
+          <li><span>Duration</span><span>3 hours</span></li>
+          <li><span>Edited Photos</span><span>40 images</span></li>
+          <li><span>Location</span><span>Studio</span></li>
+        </ul>
+        <div class="package-price">$890<small>Starting from</small></div>
+        <button class="btn btn-outline select-package" data-package="Classic Bridal Shoot">Select Package</button>
+      </div>
+
+      <div class="package-card featured reveal">
+        <span class="package-badge">Most Loved</span>
+        <h3>Premium Pre-Wedding Shoot</h3>
+        <p class="package-desc">A dreamy outdoor &amp; studio combination with full styling and creative direction.</p>
+        <ul class="package-meta">
+          <li><span>Duration</span><span>6 hours</span></li>
+          <li><span>Edited Photos</span><span>80 images</span></li>
+          <li><span>Location</span><span>Studio + Outdoor</span></li>
+        </ul>
+        <div class="package-price">$1,790<small>Starting from</small></div>
+        <button class="btn btn-primary select-package" data-package="Premium Pre-Wedding Shoot">Select Package</button>
+      </div>
+
+      <div class="package-card reveal">
+        <h3>Luxury Wedding Day Coverage</h3>
+        <p class="package-desc">Full-day cinematic coverage from morning preparations to your final dance.</p>
+        <ul class="package-meta">
+          <li><span>Duration</span><span>10 hours</span></li>
+          <li><span>Edited Photos</span><span>250+ images</span></li>
+          <li><span>Location</span><span>Full Day, Any Venue</span></li>
+        </ul>
+        <div class="package-price">$3,490<small>Starting from</small></div>
+        <button class="btn btn-outline select-package" data-package="Luxury Wedding Day Coverage">Select Package</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="section-eyebrow reveal">Portfolio</p>
+    <h2 class="section-title reveal">A Glimpse of Our Work</h2>
+    <span class="divider reveal"></span>
+    <p class="section-subtitle reveal">A curated selection of our most cherished bridal stories.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Bride 1"/></div>
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=800&q=80" alt="Bride 2"/></div>
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80" alt="Bride 3"/></div>
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80" alt="Bride 4"/></div>
+      <div class="gallery-item tall reveal"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Bride 5"/></div>
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1594552072238-7d6df0871d2c?auto=format&fit=crop&w=800&q=80" alt="Bride 6"/></div>
+      <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Bride 7"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Booking ===== -->
+<section class="booking" id="booking">
+  <div class="container">
+    <p class="section-eyebrow reveal">Reserve Your Date</p>
+    <h2 class="section-title reveal">Book Your Session</h2>
+    <span class="divider reveal"></span>
+    <p class="section-subtitle reveal">Tell us about your vision — we'll craft an unforgettable experience together.</p>
+
+    <div class="booking-wrap reveal">
+      <form id="bookingForm" novalidate>
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" required />
+            <span class="form-error">Please enter your full name.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required />
+            <span class="form-error">Please enter a valid email.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required />
+            <span class="form-error">Please enter your phone number.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="package">Photography Package <span class="req">*</span></label>
+            <select id="package" name="package" required>
+              <option value="">Select a package...</option>
+              <option value="Classic Bridal Shoot">Classic Bridal Shoot</option>
+              <option value="Premium Pre-Wedding Shoot">Premium Pre-Wedding Shoot</option>
+              <option value="Luxury Wedding Day Coverage">Luxury Wedding Day Coverage</option>
+            </select>
+            <span class="form-error">Please choose a package.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Preferred Date <span class="req">*</span></label>
+            <input type="date" id="date" name="date" required />
+            <span class="form-error">Please select a date.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="time">Preferred Time <span class="req">*</span></label>
+            <input type="time" id="time" name="time" required />
+            <span class="form-error">Please select a time.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Shoot Location</label>
+            <input type="text" id="location" name="location" placeholder="Studio / venue address / outdoor" />
+          </div>
+
+          <div class="form-group">
+            <label for="people">Number of People</label>
+            <input type="number" id="people" name="people" min="1" value="2" />
+          </div>
+
+          <div class="form-group full">
+            <label for="message">Special Request / Message</label>
+            <textarea id="message" name="message" placeholder="Share your vision, mood, theme, or any special requests..."></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Submit Booking</button>
+          </div>
+
+        </div>
+      </form>
+
+      <div class="success-message" id="successMessage">
+        <h3>❀ Thank You ❀</h3>
+        <p>Your booking request has been received. Our team will contact you within 24 hours to confirm the details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact / Footer ===== -->
+<footer class="contact" id="contact">
+  <div class="container">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-title">Étoile Bridal Studio</h2>
+    <p class="section-subtitle" style="color: rgba(255,230,236,0.85)">We'd love to hear your story.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>Visit Us</h4>
+        <p>88 Orchard Boulevard<br/>#04-12, Singapore 238888</p>
+      </div>
+      <div class="contact-item">
+        <h4>Call</h4>
+        <p><a href="tel:+6562345678">+65 6234 5678</a></p>
+      </div>
+      <div class="contact-item">
+        <h4>Email</h4>
+        <p><a href="mailto:hello@etoilebridal.com">hello@etoilebridal.com</a></p>
+      </div>
+      <div class="contact-item">
+        <h4>Follow</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Pinterest">PT</a>
+          <a href="#" aria-label="TikTok">TT</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Étoile Bridal Studio · Crafted with love &amp; cherry blossoms.<br>
+      Powered by <a href="https://www.tertiarycourses.com.sg/" target="_blank" rel="noopener">Tertiary Infotech Academy Pte Ltd</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Formsubmit endpoint — first submission triggers a confirmation email
+  // to this address. After confirming, all bookings will be delivered.
+  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/angch@tertiaryinfotech.com';
+
+  // Sticky nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Package selection auto-fills dropdown
+  document.querySelectorAll('.select-package').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pkg = btn.dataset.package;
+      const select = document.getElementById('package');
+      select.value = pkg;
+      select.closest('.form-group').classList.remove('invalid');
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Booking form validation + submission
+  const form = document.getElementById('bookingForm');
+  const success = document.getElementById('successMessage');
+  const requiredIds = ['fullName', 'email', 'phone', 'package', 'date', 'time'];
+
+  const validateField = (id) => {
+    const el = document.getElementById(id);
+    const group = el.closest('.form-group');
+    let valid = el.value.trim() !== '';
+    if (id === 'email' && valid) {
+      valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+    }
+    group.classList.toggle('invalid', !valid);
+    el.classList.toggle('error', !valid);
+    return valid;
+  };
+
+  requiredIds.forEach(id => {
+    document.getElementById(id).addEventListener('input', () => validateField(id));
+    document.getElementById(id).addEventListener('change', () => validateField(id));
+  });
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  const showSuccess = () => {
+    form.style.display = 'none';
+    success.classList.add('show');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const allValid = requiredIds.map(validateField).every(Boolean);
+    if (!allValid) {
+      const firstInvalid = form.querySelector('.form-group.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
+    console.log('New Bridal Booking Submission:', data);
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `New Bridal Booking — ${data.fullName}`,
+          _template: 'table',
+          'Full Name': data.fullName,
+          'Email': data.email,
+          'Phone': data.phone,
+          'Package': data.package,
+          'Preferred Date': data.date,
+          'Preferred Time': data.time,
+          'Location': data.location || '—',
+          'Number of People': data.people || '—',
+          'Message': data.message || '—',
+        }),
+      });
+      if (!res.ok) throw new Error('Network response was not ok');
+      showSuccess();
+    } catch (err) {
+      console.error('Booking send failed:', err);
+      alert('Sorry — we couldn’t send your booking right now. Please try again or email us directly.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
+  });
+})();
+</script>
+</body>
+</html>

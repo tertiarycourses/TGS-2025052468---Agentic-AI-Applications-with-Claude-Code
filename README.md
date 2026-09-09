@@ -42,12 +42,12 @@ By the end of this course, learners will be able to:
 | **2 — Tools and Commands** | The `.claude` directory; custom slash commands and arguments; MCP architecture and connecting servers; Playwright MCP. | **Lab 1b** — A `/publish` custom command + Playwright MCP screenshots into the README (Activities 2, 3, 3B) |
 | **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; final testing, optimisation and deployment; a key-concepts recap of **what triggers what** — `CLAUDE.md` (every session), skills & tools (on demand), slash commands (manual), hooks (by event), sub agents (by delegation). | **Lab 2** — Install 3 skills & revamp the site (Activity 4)<br>**Lab 3** — Hooks, sub agents and `/loop` (Activities 5, 6) |
 
-> Lab files are maintained in a [separate repository](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code) so learners can clone them independently. Each lab lives in its own folder (`lab1-seven-steps/`, `lab1b-commands-mcp/`, `lab2-skills/`, `lab3-hooks/`) with the exact prompts for every step.
+> Lab files are included in this repository under [`labs/`](labs/). Each lab lives in its own folder with the exact prompts for every step.
 
-- [Lab 1 — Seven-step build workflow](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab1-seven-steps)
-- [Lab 1b — Custom commands and MCP](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab1b-commands-mcp)
-- [Lab 2 — Agent skills](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab2-skills)
-- [Lab 3 — Hooks and sub agents](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab3-hooks)
+- [Lab 1 — Seven-step build workflow](labs/lab1-seven-steps/)
+- [Lab 1b — Custom commands and MCP](labs/lab1b-commands-mcp/)
+- [Lab 2 — Agent skills](labs/lab2-skills/)
+- [Lab 3 — Hooks and sub agents](labs/lab3-hooks/)
 
 ## Tools Used
 
@@ -65,16 +65,21 @@ By the end of this course, learners will be able to:
 ```
 .
 ├── courseware/                  # Trainer & learner materials (DOCX + PDF/PPTX only)
-│   ├── Agentic AI Applications with Claude Code - v16.pptx   # Slide deck (68 slides)
-│   ├── Agentic AI Applications with Claude Code - v16.pdf
+│   ├── Agentic AI Applications with Claude Code - v17.pptx   # Slide deck (67 slides)
+│   ├── Agentic AI Applications with Claude Code - v17.pdf
 │   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.8)
 │   ├── LG-Agentic AI Applications with Claude Code.pdf
 │   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.8)
 │   └── LP-Agentic AI Applications with Claude Code.pdf
+├── labs/                       # Self-contained learner lab folders
+│   ├── lab1-seven-steps/
+│   ├── lab1b-commands-mcp/
+│   ├── lab2-skills/
+│   └── lab3-hooks/
 └── README.md
 ```
 
-> **Distribution boundary:** this public repository contains learner-facing courseware only. Assessments and answer keys, the separate labs working repository, source references, internal build tooling and archived versions are deliberately excluded.
+> **Distribution boundary:** this public repository contains learner-facing courseware and labs only. Assessments and answer keys, source references, internal build tooling and archived versions are deliberately excluded.
 
 ## Course Details
 

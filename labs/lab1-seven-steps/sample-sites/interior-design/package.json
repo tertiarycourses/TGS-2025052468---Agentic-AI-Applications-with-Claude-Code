@@ -1,0 +1,17 @@
+{
+  "name": "aura-and-arch-interior-design",
+  "version": "1.0.0",
+  "description": "Luxury Interior Design Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y browser-sync start --server --files \"index.html, style.css, script.js\" --port 3000 --no-notify"
+  },
+  "keywords": [
+    "interior",
+    "design",
+    "portfolio",
+    "luxury"
+  ],
+  "author": "",
+  "license": "ISC"
+}
