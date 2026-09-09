@@ -21,7 +21,7 @@
 
 A hands-on, one-day WSQ course on building real applications with **Claude Code**, Anthropic's agentic coding tool. Learners go from a plain-English goal to a deployed, tested website using the agentic loop, context engineering, custom slash commands, MCP tools, agent skills, sub agents and hooks.
 
-The course is practical throughout — every topic is followed immediately by a lab — and closes with a **mini-capstone project** that each learner builds, tests and presents. It suits developers, technical professionals and technically-minded non-developers who want to work productively with an AI coding agent.
+The course is practical throughout — every topic is followed immediately by a lab, culminating in final testing, security, optimisation and deployment checks. It suits developers, technical professionals and technically-minded non-developers who want to work productively with an AI coding agent.
 
 ## Learning Outcomes
 
@@ -40,9 +40,14 @@ By the end of this course, learners will be able to:
 |---|---|---|
 | **1 — Claude Code Fundamentals** | Setup (Terminal, VS Code, Desktop); the agentic loop & built-in tools; context engineering and the context window (`/context`, `/compact`, `/clear`); memory files (`CLAUDE.md` vs auto memory, `/init`, `/memory`); permission modes and the dangers of bypass permissions; sessions, scheduled tasks (Routines) and `/goal`; the 7-step build workflow. | **Lab 1** — Build & deploy a website with the 7-step workflow (Activity 1A/1B) |
 | **2 — Tools and Commands** | The `.claude` directory; custom slash commands and arguments; MCP architecture and connecting servers; Playwright MCP. | **Lab 1b** — A `/publish` custom command + Playwright MCP screenshots into the README (Activities 2, 3, 3B) |
-| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; the mini-capstone; a key-concepts recap of **what triggers what** — `CLAUDE.md` (every session), skills & tools (on demand), slash commands (manual), hooks (by event), sub agents (by delegation). | **Lab 2** — Install 3 skills & revamp the site (Activity 4)<br>**Lab 3** — Hooks, sub agents and `/loop` (Activities 5, 6) |
+| **3 — Skills, Agents & Hooks** | Agent skills and installation; `SKILL.md` vs `CLAUDE.md`; sub agents and agent teams; hooks; final testing, optimisation and deployment; a key-concepts recap of **what triggers what** — `CLAUDE.md` (every session), skills & tools (on demand), slash commands (manual), hooks (by event), sub agents (by delegation). | **Lab 2** — Install 3 skills & revamp the site (Activity 4)<br>**Lab 3** — Hooks, sub agents and `/loop` (Activities 5, 6) |
 
 > Lab files are maintained in a [separate repository](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code) so learners can clone them independently. Each lab lives in its own folder (`lab1-seven-steps/`, `lab1b-commands-mcp/`, `lab2-skills/`, `lab3-hooks/`) with the exact prompts for every step.
+
+- [Lab 1 — Seven-step build workflow](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab1-seven-steps)
+- [Lab 1b — Custom commands and MCP](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab1b-commands-mcp)
+- [Lab 2 — Agent skills](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab2-skills)
+- [Lab 3 — Hooks and sub agents](https://github.com/tertiarycourses/TGS-2025052468-Claude-Code/tree/main/lab3-hooks)
 
 ## Tools Used
 
@@ -60,21 +65,16 @@ By the end of this course, learners will be able to:
 ```
 .
 ├── courseware/                  # Trainer & learner materials (DOCX + PDF/PPTX only)
-│   ├── Agentic AI Applications with Claude Code - v15.pptx   # Slide deck (70 slides)
-│   ├── Agentic AI Applications with Claude Code - v15.pdf
-│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.7)
+│   ├── Agentic AI Applications with Claude Code - v16.pptx   # Slide deck (68 slides)
+│   ├── Agentic AI Applications with Claude Code - v16.pdf
+│   ├── LG-Agentic AI Applications with Claude Code.docx      # Learner Guide  (v1.8)
 │   ├── LG-Agentic AI Applications with Claude Code.pdf
 │   ├── LP-Agentic AI Applications with Claude Code.docx      # Lesson Plan    (v1.8)
 │   └── LP-Agentic AI Applications with Claude Code.pdf
-├── .claude/skills/              # House courseware build skills
-│   ├── wsq-slides/              #   slide deck generator (+ reference/ build pipeline)
-│   ├── wsq-learner-guide/       #   Learner Guide generator
-│   ├── wsq-lesson-plan/         #   Lesson Plan generator
-│   └── assets/                  #   branding assets
 └── README.md
 ```
 
-> **Note:** the confidential `assessment/` folder (question papers and answer keys) and the `labs/` working repository are **deliberately excluded** from this repository.
+> **Distribution boundary:** this public repository contains learner-facing courseware only. Assessments and answer keys, the separate labs working repository, source references, internal build tooling and archived versions are deliberately excluded.
 
 ## Course Details
 
@@ -91,23 +91,7 @@ By the end of this course, learners will be able to:
 
 ### Funding
 
-This course is **WSQ-funded and SkillsFuture claimable**. To qualify for funding, learners must achieve a **minimum 75% attendance** and be assessed as **Competent**. For current subsidy rates and eligibility, see the [course registration page](https://www.tertiarycourses.com.sg/wsq-agentic-ai-applications-with-claude-code.html).
-
-## Building the Courseware
-
-All artifacts are generated from a single source so the deck, Lesson Plan and Learner Guide can never drift apart:
-
-```bash
-# Regenerate everything (slide deck, Lesson Plan, Learner Guide)
-bash .claude/skills/wsq-slides/reference/build_courseware.sh
-
-# Or build individually
-python3 .claude/skills/wsq-slides/reference/build_slides.py
-python3 .claude/skills/wsq-slides/reference/build_lesson_plan.py
-python3 .claude/skills/wsq-slides/reference/build_learner_guide.py
-```
-
-Each regeneration bumps the artifact version and adds a row to the Document Version Control Record.
+Eligible learners and employers may receive **up to 70% course fee funding**. Eligibility and terms apply. Learners must also meet the course attendance and assessment requirements; see the [course registration page](https://www.tertiarycourses.com.sg/wsq-agentic-ai-applications-with-claude-code.html) for current details.
 
 ## Contact
 
